@@ -1,7 +1,3 @@
-# adipocytesize
-Adipocyte size ImageJ macro
+# Molecular pathways behind acquired obesity: adipose tissue and skeletal muscle multiomics in monozygotic twin pairs discordant for BMI
 
-This code is associated with the paper: 
-Molecular pathways behind acquired obesity: adipose tissue and skeletal muscle multiomics in monozygotic twin pairs discordant for BMI
-
-The code is used to measure the adipocyte diameters. 
+The code used to measure the adipocyte diameters in the paper by van der Kolk et al (2021). 
