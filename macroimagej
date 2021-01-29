@@ -1,0 +1,30 @@
+macro "Adipocyte_sizes Action Tool - C037T0b11AT7b09dTcb091" { //
+    while (nImages>0) {
+        title = getTitle();
+        run("8-bit");
+        run("Subtract Background...", "rolling=5 light sliding disable");
+        run("Mean...", "radius=2");
+        run("Enhance Contrast...", "saturated=0.5");
+        run("Median...", "radius=1");
+        setAutoThreshold("Triangle");
+        run("Convert to Mask");
+        run("Invert");
+        run("Analyze Particles...", "size=200-1000000000 pixel circularity=0.7-1.00 show=[Overlay Masks] display exclude clear add in_situ");
+        roiManager("Show None");
+        roiManager("Show All without labels");
+        run("Flatten");
+        rename("Flat");
+        selectWindow(title);
+        run("Close");
+        selectWindow("Flat");
+        run("8-bit");
+        setAutoThreshold("Li dark");
+        run("Convert to Mask");
+        run("Watershed");
+        run("Analyze Particles...", "size=600-1000000000 pixel circularity=0.75-1.00 show=[Overlay Masks] display exclude clear");
+        String.copyResults();
+        waitForUser("Copy results to excel (CTRL V)");
+        selectWindow("Flat");
+        run("Close");
+    }
+}
